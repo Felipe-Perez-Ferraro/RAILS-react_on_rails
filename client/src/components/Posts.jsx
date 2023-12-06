@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPosts } from '../redux/posts/postsSlice';
+import { Link } from 'react-router-dom';
 
 function Posts() {
   const { posts } = useSelector((state) => state.posts);
@@ -16,10 +17,10 @@ function Posts() {
   return (
     <div>
       {posts.map((post) => (
-        <div key={post.id}>
+        <Link key={post.id} to={`/posts/${post.id}`}>
           <h2>{post.title}</h2>
           <p>{post.body}</p>
-        </div>
+        </Link>
       ))}
     </div>
   );
