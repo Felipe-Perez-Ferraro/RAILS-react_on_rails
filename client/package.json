@@ -40,6 +40,7 @@
   },
   "proxy": "http://localhost:3000/api/v1/greetings",
   "devDependencies": {
+    "@babel/eslint-parser": "^7.23.3",
     "eslint": "^8.55.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
