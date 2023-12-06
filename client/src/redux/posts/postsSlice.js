@@ -8,7 +8,7 @@ const initialState = {
 
 export const fetchPosts = createAsyncThunk('posts/fetchposts', async () => {
   const response = await fetch('http://localhost:3000/api/v1/posts');
-  const result = response.json();
+  const result = await response.json();
   return result;
 });
 
@@ -18,6 +18,21 @@ export const fetchPostsDetails = createAsyncThunk(
     const response = await fetch(`http://localhost:3000/api/v1/posts/${id}`);
     const result = await response.json();
     return result;
+  }
+);
+
+export const createPost = createAsyncThunk(
+  'post/createpost',
+  async (postData) => {
+    const response = await fetch('http://localhost:3000/api/v1/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postData),
+    });
+    const data = await response.json()
+    return data
   }
 );
 
@@ -33,6 +48,9 @@ const postsSlice = createSlice({
     builder.addCase(fetchPostsDetails.fulfilled, (state, action) => {
       state.post = action.payload;
     });
+    builder.addCase(createPost.fulfilled, (state, action) => {
+      state.posts.push(action.payload); 
+    })
   },
 });
 
