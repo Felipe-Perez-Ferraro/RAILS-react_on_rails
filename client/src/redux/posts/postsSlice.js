@@ -31,8 +31,8 @@ export const createPost = createAsyncThunk(
       },
       body: JSON.stringify(postData),
     });
-    const data = await response.json()
-    return data
+    const data = await response.json();
+    return data;
   }
 );
 
@@ -49,8 +49,8 @@ const postsSlice = createSlice({
       state.post = action.payload;
     });
     builder.addCase(createPost.fulfilled, (state, action) => {
-      state.posts.push(action.payload); 
-    })
+      state.posts.push(action.payload);
+    });
   },
 });
 
