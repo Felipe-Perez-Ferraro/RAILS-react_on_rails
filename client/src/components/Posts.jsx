@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { deletePost, fetchPosts } from '../redux/postsFunc';
 import { Link, useNavigate } from 'react-router-dom';
+import { deletePost, fetchPosts } from '../redux/postsFunc';
 
 function Posts() {
   const { posts } = useSelector((state) => state.posts);
@@ -33,8 +33,8 @@ function Posts() {
             <p className="text-md">{post.body}</p>
           </Link>
           <div className="flex justify-between">
-            <Link to={`/posts/${post.id}/edit`} className='bg-green-600 py-1 rounded w-16 text-center text-white font-semibold'>Edit</Link>
-            <button type="button" onClick={() => handleDelete(post.id)} className='bg-red-600 py-1 rounded w-16 text-center text-white font-semibold'>
+            <Link to={`/posts/${post.id}/edit`} className="bg-green-600 py-1 rounded w-16 text-center text-white font-semibold">Edit</Link>
+            <button type="button" onClick={() => handleDelete(post.id)} className="bg-red-600 py-1 rounded w-16 text-center text-white font-semibold">
               Delete
             </button>
           </div>

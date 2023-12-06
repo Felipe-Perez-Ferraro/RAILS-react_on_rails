@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createPost, deletePost, editPost, fetchPosts, fetchPostsDetails } from '../postsFunc';
+import {
+  createPost, deletePost, editPost, fetchPosts, fetchPostsDetails,
+} from '../postsFunc';
 
 const initialState = {
   posts: [],
@@ -27,7 +29,7 @@ const postsSlice = createSlice({
     });
     builder.addCase(deletePost.fulfilled, (state, action) => {
       const postId = action.payload.id;
-      state.posts = state.posts.filter(post => post.id !== postId);
+      state.posts = state.posts.filter((post) => post.id !== postId);
     });
   },
 });

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import {
-  editPost,
-  fetchPosts,
-  fetchPostsDetails,
-} from '../redux/postsFunc';
+import { editPost, fetchPosts, fetchPostsDetails } from '../redux/postsFunc';
 
 function EditPostForm() {
   const [title, setTitle] = useState('');
@@ -36,20 +32,20 @@ function EditPostForm() {
       <h2>Edit post</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="titleInput">Title:</label>
           <input
             type="text"
             id="titleInput"
             value={title}
+            placeholder="Title"
             onChange={(e) => setTitle(e.target.value)}
             required
           />
         </div>
         <div>
-          <label htmlFor="bodyInput">Body:</label>
           <textarea
             id="bodyInput"
             value={body}
+            placeholder="Body"
             onChange={(e) => setBody(e.target.value)}
             required
           />
