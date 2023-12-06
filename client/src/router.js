@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import Posts from './components/Posts';
 import PostDetails from './components/PostDetails';
 import NewPostForm from './components/NewPostForm';
+import EditPostForm from './components/EditPostForm';
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +30,15 @@ export const router = createBrowserRouter([
       <>
         <NavBar />
         <PostDetails />
+      </>
+    ),
+  },
+  {
+    path: '/posts/:id/edit',
+    element: (
+      <>
+        <NavBar />
+        <EditPostForm />
       </>
     ),
   },

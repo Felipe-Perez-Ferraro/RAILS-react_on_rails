@@ -36,6 +36,21 @@ export const createPost = createAsyncThunk(
   }
 );
 
+export const editPost = createAsyncThunk(
+  'post/editpost',
+  async ({ id, postData }) => {
+    const response = await fetch(`http://localhost:3000/api/v1/posts/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({post: postData}),
+    });
+    const data = await response.json();
+    return data;
+  }
+);
+
 const postsSlice = createSlice({
   name: 'posts',
   initialState,
@@ -50,6 +65,9 @@ const postsSlice = createSlice({
     });
     builder.addCase(createPost.fulfilled, (state, action) => {
       state.posts.push(action.payload);
+    });
+    builder.addCase(editPost.fulfilled, (state, action) => {
+      state.post = action.payload;
     });
   },
 });
