@@ -44,12 +44,29 @@ export const editPost = createAsyncThunk(
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({post: postData}),
+      body: JSON.stringify({ post: postData }),
     });
     const data = await response.json();
     return data;
   }
 );
+
+export const deletePost = createAsyncThunk('post/deletepost', async (id) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/v1/posts/${id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      return { id }; 
+    } else {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Failed to delete post');
+    }
+  } catch (error) {
+    throw new Error(error.message || 'Failed to delete post');
+  }
+});
 
 const postsSlice = createSlice({
   name: 'posts',
@@ -68,6 +85,10 @@ const postsSlice = createSlice({
     });
     builder.addCase(editPost.fulfilled, (state, action) => {
       state.post = action.payload;
+    });
+    builder.addCase(deletePost.fulfilled, (state, action) => {
+      const postId = action.payload.id;
+      state.posts = state.posts.filter(post => post.id !== postId);
     });
   },
 });
