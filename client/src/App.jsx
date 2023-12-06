@@ -1,19 +1,9 @@
-import Posts from './components/Posts';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { router } from './router';
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: '/',
-      element: (
-        <>
-          <Posts />
-        </>
-      ),
-    },
-  ]);
   return (
     <>
       <Provider store={store}>
