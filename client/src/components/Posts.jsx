@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { deletePost, fetchPosts } from '../redux/postsFunc';
+import { deletePost, fetchPosts } from '../redux/posts/postsSlice';
 
 function Posts() {
   const { posts } = useSelector((state) => state.posts);

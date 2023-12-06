@@ -1,7 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-import {
-  createPost, deletePost, editPost, fetchPosts, fetchPostsDetails,
-} from '../postsFunc';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   posts: [],

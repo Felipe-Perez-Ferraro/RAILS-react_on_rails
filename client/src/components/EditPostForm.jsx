@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { editPost, fetchPosts, fetchPostsDetails } from '../redux/postsFunc';
+import { editPost, fetchPosts, fetchPostsDetails } from '../redux/posts/postsSlice';
 
 function EditPostForm() {
   const [title, setTitle] = useState('');
