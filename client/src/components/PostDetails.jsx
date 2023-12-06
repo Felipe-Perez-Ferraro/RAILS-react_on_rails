@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { fetchPostsDetails } from '../redux/postsFunc';
+import { fetchPostsDetails } from '../redux/posts/postsSlice';
 
 function PostDetails() {
   const { post } = useSelector((state) => state.posts);

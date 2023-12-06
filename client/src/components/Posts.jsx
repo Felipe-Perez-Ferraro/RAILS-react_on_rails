@@ -22,15 +22,12 @@ function Posts() {
   };
 
   return (
-    <section className="max-w-4xl mx-auto my-5 flex gap-x-5 gap-y-5 justify-center flex-wrap">
+    <div>
       {posts.map((post) => (
-        <article
-          key={post.id}
-          className="flex flex-col gap-y-4 border border-slate-900 rounded bg-slate-100 p-2 w-72"
-        >
+        <article key={post.id}>
           <Link to={`/posts/${post.id}`}>
-            <h2 className="font-medium text-2xl mb-1">{post.title}</h2>
-            <p className="text-md">{post.body}</p>
+            <h2>{post.title}</h2>
+            <p>{post.body}</p>
           </Link>
           <div className="flex justify-between">
             <Link to={`/posts/${post.id}/edit`} className="bg-green-600 py-1 rounded w-16 text-center text-white font-semibold">Edit</Link>
@@ -40,7 +37,7 @@ function Posts() {
           </div>
         </article>
       ))}
-    </section>
+    </div>
   );
 }
 
