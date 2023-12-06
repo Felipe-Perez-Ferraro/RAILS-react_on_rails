@@ -38,5 +38,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3000/api/v1/greetings"
+  "proxy": "http://localhost:3000/api/v1/greetings",
+  "devDependencies": {
+    "tailwindcss": "^3.3.6"
+  }
 }

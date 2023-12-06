@@ -5,7 +5,7 @@ import {
   editPost,
   fetchPosts,
   fetchPostsDetails,
-} from '../redux/posts/postsSlice';
+} from '../redux/postsFunc';
 
 function EditPostForm() {
   const [title, setTitle] = useState('');

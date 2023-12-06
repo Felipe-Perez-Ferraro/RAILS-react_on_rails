@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createPost, fetchPosts } from '../redux/posts/postsSlice';
+import { createPost, fetchPosts } from '../redux/postsFunc';
 import { useNavigate } from 'react-router-dom';
 
 function NewPostForm() {

@@ -1,17 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function NavBar() {
   return (
-    <header>
-      <nav>
-        <ul>
-          <Link to="/">
-            <li>Home</li>
-          </Link>
-          <Link to="/new">
-            <li>Create Post</li>
-          </Link>
+    <header className='bg-orange-700'>
+      <nav className='max-w-lg mx-auto flex items-center justify-center h-20'>
+        <ul className='flex gap-x-2'>
+          <NavLink to="/" activeClassName="active">
+            <li className='text-lg font-semibold text-slate-100'>Home</li>
+          </NavLink>
+          { "|" }
+          <NavLink to="/new" activeClassName="active">
+            <li className='text-lg font-semibold text-slate-100'>Create Post</li>
+          </NavLink>
         </ul>
       </nav>
     </header>
